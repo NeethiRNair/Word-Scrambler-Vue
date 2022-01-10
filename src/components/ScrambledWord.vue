@@ -12,7 +12,7 @@
             </v-row>
         </div>
     <Score v-if="renderComponents" />
-
+    <GuessingBlocks  v-if="renderComponents" :sentence="sentence" />
   </v-container>
 </template>
 
@@ -20,11 +20,12 @@
     import { Component, Prop, Vue } from 'vue-property-decorator';
     import axios from 'axios';
     import Score from '../components/Score.vue';
-
+    import GuessingBlocks from '../components/GuessingBlocks.vue'
   
     @Component({
         components: {
             Score,
+            GuessingBlocks
         }
     })
     export default class ScrambledWord extends Vue {

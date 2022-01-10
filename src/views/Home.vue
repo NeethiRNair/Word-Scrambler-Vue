@@ -29,7 +29,7 @@
     private score: any = 0;
     private sentence: any = ''; 
     private renderComponent: any = true;
-    private maxScore: any = 10;
+    private maxScore: any = 2;
     
     get sentenceNumber(){
       return this.$store.getters.getSentenceNumber;
