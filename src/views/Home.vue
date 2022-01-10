@@ -1,16 +1,27 @@
 <template>
   <v-container class="home-container">
-    
+    <v-row v-if="!winningScore" class="content">
+      <ScrambledWord v-if="renderComponent" :sentenceNumber="sentenceNumber" />
+      <v-row justify="center" class="pb-5" v-if="renderComponent && !winningScore">
+        <v-btn  color="#388e3c" dark  @click="incrementScore" class="my-3" :class="(correctCount== guessCount)? '' : 'disable-events'">Next</v-btn>
+      </v-row>
+    </v-row>
+    <div v-if="winningScore" class="win-outer" >
+      <v-row  class="content win-container " align="center" justify="center">
+          <h4>You Win!</h4>
+      </v-row>
+    </div>
   </v-container>
 </template>
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-
+  import ScrambledWord from '../components/ScrambledWord.vue';
  
   
   @Component({
      components: {
+        ScrambledWord,
         
       }
   })
